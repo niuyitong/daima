@@ -105,7 +105,7 @@ void reverse(char *str)
 	//1.ÄæĞòÕû¸ö×Ö·û´®
 	int len = my_strlen(str);
 	assert(str != NULL);
-	reverse_str(str, str + len - 1);
+	reverse_str(str, str + len - 1);//i ma a tneduts
 	printf("%s\n", str);
 	//2.ÄæĞòÃ¿¸öµ¥´Ê
 	while (*str!='\0')
