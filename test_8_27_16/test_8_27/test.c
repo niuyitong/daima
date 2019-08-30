@@ -180,3 +180,91 @@
 //	}
 //	return 0;
 //}
+
+//8.strncpy
+//char* my_strncpy(char* dest, const char* src, int count)
+//{
+//	assert(dest&&src);
+//	char* ret = 0;
+//	while (count && (*dest++ = *src++))
+//	{
+//		count--;
+//	}
+//	if (count)
+//	{
+//		while (--count)
+//		{
+//			*dest = '\0';
+//		}
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	char arr[] = "abcdefg";
+//	my_strncpy(arr, "rst", 5);
+//	printf("%s\n", arr);
+//	return 0;
+//}
+//9.strncmp
+//int my_strncmp(const char* arr1, const char* arr2, int k)
+//{
+//	assert(arr1&&arr2);
+//	while (k)
+//	{
+//		if (*arr1&&*arr2 && (*arr1 == *arr2))
+//		{
+//			arr1++;
+//			arr2++;
+//		}
+//		else
+//			return *arr1 - *arr2;
+//		k--;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	char arr1[] = "abcdefg";
+//	char arr2[] = "abd";
+//	int ret = my_strncmp(arr1, arr2, 4);
+//	if (ret > 0)
+//		printf("arr1\n");
+//	else if (ret < 0)
+//		printf("arr2\n");
+//
+//	else
+//		printf("ПаµИ\n");
+//	return 0;
+//}
+//10.strncat
+//char* my_strncat(char* dest, const char* src, size_t num)
+//{
+//	assert(dest&&src);
+//	char* ret = dest;
+//	while (*dest)
+//	{
+//		dest++;
+//	}
+//	while (num&&(*dest++=*src++))
+//	{
+//		num--;
+//	}
+//	if (num)
+//	{
+//		*dest = *src;
+//		return ret;
+//	}
+//	if (num == 0)
+//	{
+//		*dest = '\0';
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	char arr[20] = "abcd";
+//	my_strncat(arr, "xyz", 2);
+//	printf("%s\n", arr);
+//	return 0;
+//}
