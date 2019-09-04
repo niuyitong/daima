@@ -194,3 +194,59 @@ void SaveContact(Contact* pcon)
 	fclose(pfWrite);
 	pfWrite = NULL;
 }
+int cmp_by_name(const void* e1, const void* e2)
+{
+	return strcmp(((PeoInfo*)e1)->name, ((PeoInfo*)e2)->name);
+}
+void SortContact(Contact* pcon)
+{
+	qsort(pcon->data, pcon->sz, sizeof(PeoInfo), cmp_by_name);
+	printf("排序成功\n");
+}
+
+void ModifyContact(Contact* pcon)
+{
+	char name[NAME_MAX] = { 0 };
+	int pos = 0;
+	assert(pcon);
+
+	if (pcon->sz == 0)
+	{
+		printf("通讯录已空，无法修改\n");
+		return;
+	}
+	printf("请输入要修改人的姓名：");
+	scanf("%s", name);
+	//查找
+	pos = FindByName(pcon, name);
+	if (pos >= 0)
+	{
+		printf("找到了\n");
+		printf("请输入要修改的姓名：");
+		scanf("%s", pcon->data[pos].name);
+		printf("请输入要修改的年龄：");
+		scanf("%d", &pcon->data[pos].age);
+		printf("请输入要修改的性别：");
+		scanf("%s", pcon->data[pos].sex);
+		printf("请输入要修改的电话：");
+		scanf("%s", pcon->data[pos].tele);
+		printf("请输入要修改的地址：");
+		scanf("%s", pcon->data[pos].addr);
+	}
+	printf("修改成功\n");
+}
+void SearchContact(Contact* pcon)
+{
+	char name[NAME_MAX] = { 0 };
+	int pos = 0;
+	assert(pcon);
+	printf("请输入要查找的人的姓名：");
+	scanf("%s", name);
+	pos = FindByName(pcon, name);
+	printf("%15s\t%5s\t%5s\t%12s\t%20s\n", "名字", "年龄", "性别", "电话", "地址");
+	printf("%15s\t%5d\t%5s\t%12s\t%20s\n", pcon->data[pos].name,
+		pcon->data[pos].age,
+		pcon->data[pos].sex,
+		pcon->data[pos].tele,
+		pcon->data[pos].addr);
+}

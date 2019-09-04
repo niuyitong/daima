@@ -35,13 +35,16 @@ int main()
 			DelContact(&con);
 			break;
 		case SORT:
+			SortContact(&con);
 			break;
 		case MODIFY:
+			ModifyContact(&con);
 			break;
 		case SHOW:
 			ShowContact(&con);
 			break;
 		case SEARCH:
+			SearchContact(&con);
 			break;
 		case EXIT:
 			SaveContact(&con);
